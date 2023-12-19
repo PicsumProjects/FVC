@@ -20,5 +20,8 @@ Starts with 0x01, then frame length (width * height * stride) (uint, 64-bit, big
 
 Frame compressed by only storing the macroblock diff between one of the previous 60 frames.
 
-Starts with 0x01, then previous frame number that this macroblok diff is referencing to, then the number of macroblocks in the macroblock diff, then previous then frame length (width * height * stride) (uint, 64-bit, big-endian), and last frame data (each macroblock in the frame data starts with a 32-bit number dictating which macroblock in the macroblock diff is this macroblock).
+Starts with 0x01, then previous frame number that this macroblock diff is referencing to, then the number of macroblocks in the macroblock diff, then previous then frame length (width * height * stride) (uint, 64-bit, big-endian), and last frame data (each macroblock in the frame data starts with a 32-bit number dictating which macroblock in the macroblock diff is this macroblock).
 
+# But how do I know which prame to put as the previous frame?
+
+pHash all the images (resize to grayscale 32x32) and compare them.
